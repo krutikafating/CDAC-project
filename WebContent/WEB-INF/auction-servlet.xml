@@ -15,7 +15,16 @@
 	
 	<context:component-scan	base-package="com.eauction.controller"></context:component-scan>
 	
+
 	
-	<mvc:resources mapping="/images/**" location="/WEB-INF/images/" />
+	
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="viewResolver">
+		
+			<property value="/" name="prefix"/>
+			
+			<property value=".jsp" name="suffix"/>
+			
+		</bean> 
 	
 </beans>

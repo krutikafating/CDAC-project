@@ -8,10 +8,8 @@
 </head>
 <body>
 
-	<jsp:include page="views/auctionheader.jsp" />
-	
-	<center>
-		<h1>Welcome to E-Auction</h1>
-	</center>
+	<jsp:include page="/views/auctionheader.jsp" /> 
+	<h1>welcome</h1>
+
 </body>
 </html>
