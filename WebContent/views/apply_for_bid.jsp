@@ -1,23 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
-<title>User Login</title>
+<title>Apply for bid</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+
 <style>
 body {
     color: #000;
     background: #272A2B;
     font-family: 'Roboto', sans-serif;
-    margin-top: 100px;
 }
 .form-control {
     height: 40px;
@@ -39,7 +40,7 @@ body {
 .login-form h2:before, .login-form h2:after {
     content: "";
     height: 2px;
-    width: 25%;
+    width: 20%;
     background: #716D6D;
     position: absolute;
     top: 50%;
@@ -99,28 +100,45 @@ body {
     text-decoration: underline;
 }  
 </style>
+
+
 </head>
 <body>
 
 
 
 <div class="login-form">
-    <form action="${pageContext.request.contextPath}/login_action_user" method="post">
-        <h2>User Login</h2>
+    <form action="${pageContext.request.contextPath}/bid_action_product" method="post" enctype="multipart/form-data">
+        <h2>Apply for Bid</h2>
         
         <div class="form-group">
-            <input type="text" class="form-control" name="username_user" placeholder="username" autocomplete="off" required="required">
+             <label for="Uname">Username:</label>
+            <input type="text" class="form-control" name="bid_username" required="required">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" name="password_user" placeholder="Password" required="required">
-        </div>       
+             <label for="product">Product:</label>
+            <input type="text" class="form-control" name="bid_product" required="required">
+        </div>   
+         <div class="form-group">
+             <label for="details">Details:</label>
+            <input type="text" class="form-control" name="bid_details" required="required">
+        </div> 
         <div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block" style="background-color: #272A2B; border-color: none">Login</button>
+             <label for="details">Owner:</label>
+            <input type="text" class="form-control" name="bid_owner" required="required">
+        </div>   
+          <div class="form-group">
+             <label for="min_bid">Bid Amount:</label>
+            <input type="number" class="form-control" name="bid_bidAmount" required="required">
+        </div>    
+        <div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg btn-block" style="background-color: #272A2B; border-color: none">Add</button>
         </div>
-        <div class="form-group" style="position:center">
-            <a href="new_register" style="position:center;margin-left:150px;color:#1A1DD3">New Register!</a>
-        </div>  
+         <div class="form-group">
+            <button type="reset" class="btn btn-success btn-lg btn-block" style="background-color: #272A2B; border-color: none">Reset</button>
+        </div>
     </form>
 </div>
+
 </body>
 </html>

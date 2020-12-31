@@ -138,7 +138,7 @@ footer {
 	<br>
 
 	<footer class="container-fluid text-center">
-		<p>@ 2020 Copyright:E-Auction</p>
+		<p>E-Auction</p>
 	</footer>
 
 </body>

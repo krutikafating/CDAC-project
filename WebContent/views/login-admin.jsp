@@ -39,7 +39,7 @@ body {
 .login-form h2:before, .login-form h2:after {
     content: "";
     height: 2px;
-    width: 30%;
+    width: 25%;
     background: #716D6D;
     position: absolute;
     top: 50%;
@@ -106,7 +106,7 @@ body {
 
 <div class="login-form">
     <form action="${pageContext.request.contextPath}/login_action" method="post">
-        <h2>Admin</h2>
+        <h2>Admin Login</h2>
         
         <div class="form-group">
             <input type="text" class="form-control" name="username" placeholder="username" autocomplete="off" required="required">

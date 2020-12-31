@@ -2,17 +2,44 @@ package com.dao;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+//POJO CLass
+
+
+@Entity
+@Table(name = "user")
 public class User {
 	
-	
+	@Id
+	@Column(name = "id")
 	private int id;
+	
+	@Column(name = "first_name")
 	private String first_name;
+	
+	@Column(name = "last_name")
 	private String last_name;
-	private String address;
-	private Date dob;
+	
+	@Column(name = "email")
 	private String email;
-	private String password;
+	
+	@Column(name = "address")
+	private String address;
+	
+	@Column(name = "dob")
+	private Date dob;
+	
+	@Column(name = "mobile")
 	private int mobile;
+	
+	@Column(name = "password")
+	private String password;
+	
+	@Column(name = "confirmpassword")
+	private String confirmpassword;
 	
 	
 	
@@ -35,6 +62,12 @@ public class User {
 	public void setLast_name(String last_name) {
 		this.last_name = last_name;
 	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getAddress() {
 		return address;
 	}
@@ -47,11 +80,11 @@ public class User {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-	public String getEmail() {
-		return email;
+	public int getMobile() {
+		return mobile;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setMobile(int mobile) {
+		this.mobile = mobile;
 	}
 	public String getPassword() {
 		return password;
@@ -59,12 +92,13 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getMobile() {
-		return mobile;
+	public String getConfirmpassword() {
+		return confirmpassword;
 	}
-	public void setMobile(int mobile) {
-		this.mobile = mobile;
+	public void setConfirmpassword(String confirmpassword) {
+		this.confirmpassword = confirmpassword;
 	}
+	
 	
 	
 	

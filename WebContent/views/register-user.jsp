@@ -40,7 +40,7 @@ body {
 .login-form h2:before, .login-form h2:after {
     content: "";
     height: 2px;
-    width: 30%;
+    width: 20%;
     background: #716D6D;
     position: absolute;
     top: 50%;
@@ -109,7 +109,7 @@ body {
 
 <div class="login-form">
     <form action="${pageContext.request.contextPath}/register_action_user" method="post">
-        <h2>Register</h2>
+        <h2>Register User</h2>
         
         <div class="form-group">
             <input type="text" class="form-control" name="firstname" placeholder="First Name" required="required">
@@ -125,6 +125,9 @@ body {
         </div> 
          <div class="form-group">
             <input type="date" class="form-control" name="dob" placeholder="Date of birth" required="required">
+        </div> 
+        <div class="form-group">
+            <input type="tel" class="form-control" name="add_mobile" placeholder="Mobile no" required="required">
         </div> 
          <div class="form-group">
             <input type="password" class="form-control" name="password" placeholder="Password" required="required">

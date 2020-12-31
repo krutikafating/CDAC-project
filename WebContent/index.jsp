@@ -9,7 +9,7 @@
 <body>
 
 	<jsp:include page="/views/auctionheader.jsp" /> 
-	<h1>welcome</h1>
+	
 
 </body>
 </html>

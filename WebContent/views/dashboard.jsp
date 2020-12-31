@@ -43,7 +43,11 @@
 			</div>
 		</div>
 	</nav>
-	Welcome <%= session.getAttribute("username") %>
+	<center>
+		<h2 style="color: #8321B4;font-family:Cursive">
+  			Welcome <%= session.getAttribute("username") %>
+  		</h2>
+  	</center>
 
 </body>
 </html>

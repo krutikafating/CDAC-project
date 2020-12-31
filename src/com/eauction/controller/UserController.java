@@ -53,8 +53,8 @@ public class UserController {
 			
 		}
 		
-		@RequestMapping("/logout_user")
-		public void logoutAdminUser(HttpServletRequest req,HttpServletResponse res) throws IOException
+		@RequestMapping("/logoutUser")
+		public void logoutUser(HttpServletRequest req,HttpServletResponse res) throws IOException
 		{
 			req.getSession().invalidate();
 			
@@ -102,6 +102,14 @@ public class UserController {
 			}
 			
 		}
+		
+		@RequestMapping( "/add_auctions")
+		public String getauctionProduct()
+		{	
+			
+			return "views/auction"; 
+		}
+		
 
 	}
 	
