@@ -108,14 +108,14 @@ body {
 
 
 <div class="login-form">
-    <form action="${pageContext.request.contextPath}/register_action_user" method="post">
+    <form action="${pageContext.request.contextPath}/register_action_user" method="post" modelAttribute="register_new">
         <h2>Register User</h2>
         
         <div class="form-group">
-            <input type="text" class="form-control" name="firstname" placeholder="First Name" required="required">
+            <input type="text" class="form-control" name="first_name" placeholder="First Name" required="required">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" name="lastname" placeholder="Last Name" required="required">
+            <input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required">
         </div>   
          <div class="form-group">
             <input type="email" class="form-control" name="email" placeholder="Email id" required="required">
@@ -127,7 +127,7 @@ body {
             <input type="date" class="form-control" name="dob" placeholder="Date of birth" required="required">
         </div> 
         <div class="form-group">
-            <input type="tel" class="form-control" name="add_mobile" placeholder="Mobile no" required="required">
+            <input type="tel" class="form-control" name="mobile" placeholder="Mobile no" required="required">
         </div> 
          <div class="form-group">
             <input type="password" class="form-control" name="password" placeholder="Password" required="required">

@@ -1,107 +1,124 @@
-package com.dao;
+package com.eauction.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 //POJO CLass
 
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "user")
-public class User {
-	
+@SuppressWarnings("serial")
+public class User implements Serializable {
+
 	@Id
+	@GeneratedValue
 	@Column(name = "id")
 	private int id;
-	
+
 	@Column(name = "first_name")
 	private String first_name;
-	
+
 	@Column(name = "last_name")
 	private String last_name;
-	
+
 	@Column(name = "email")
 	private String email;
-	
+
 	@Column(name = "address")
 	private String address;
-	
+
 	@Column(name = "dob")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dob;
-	
+
 	@Column(name = "mobile")
-	private int mobile;
-	
+	private String mobile;
+
 	@Column(name = "password")
 	private String password;
-	
-	@Column(name = "confirmpassword")
-	private String confirmpassword;
-	
+
+	private String confirm_password;
+
 	
 	
 	
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getFirst_name() {
 		return first_name;
 	}
+
 	public void setFirst_name(String first_name) {
 		this.first_name = first_name;
 	}
+
 	public String getLast_name() {
 		return last_name;
 	}
+
 	public void setLast_name(String last_name) {
 		this.last_name = last_name;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
 	public Date getDob() {
 		return dob;
 	}
+
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-	public int getMobile() {
+
+	public String getMobile() {
 		return mobile;
 	}
-	public void setMobile(int mobile) {
+
+	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getConfirmpassword() {
-		return confirmpassword;
+
+	public String getConfirm_password() {
+		return confirm_password;
 	}
-	public void setConfirmpassword(String confirmpassword) {
-		this.confirmpassword = confirmpassword;
+
+	public void setConfirm_password(String confirm_password) {
+		this.confirm_password = confirm_password;
 	}
-	
-	
-	
-	
-	
-	
+
 }

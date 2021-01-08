@@ -1,4 +1,4 @@
-package com.db;
+package com.eauction.db;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +9,8 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-import com.dao.User;
+import com.eauction.model.Product;
+import com.eauction.model.User;
 
 public class HibernateDatabaseConnection {
 	private static StandardServiceRegistry registry;
@@ -34,8 +35,8 @@ public class HibernateDatabaseConnection {
 	        registry = registryBuilder.build();
 
 	        MetadataSources sources = new MetadataSources(registry)
-	            .addAnnotatedClass(User.class);
-	            //.addAnnotatedClass(Auction.class);  //whenever we want to add more database table then add...
+	            .addAnnotatedClass(User.class)
+	            .addAnnotatedClass(Product.class);  //whenever we want to add more database table then add...
 
 	        Metadata metadata = sources.getMetadataBuilder().build();
 

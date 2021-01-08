@@ -7,12 +7,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import com.eauction.db.HibernateDatabaseConnection;
+import com.eauction.model.Product;
+import com.eauction.model.User;
 
 @Controller
 public class AddProductController {
@@ -30,20 +37,23 @@ public class AddProductController {
 
 	@RequestMapping(value = "/add_product_user", method = RequestMethod.POST)
 	public void addProduct(
-			@RequestParam("add_username") String addUsername,
-			@RequestParam("add_product") String addProduct,
-			@RequestParam("add_details") String addDetails,
-			@RequestParam("add_minimum_bid") int addMinBid,
-			@RequestParam("add_opening_date") String addOpenDate,
-			@RequestParam("add_closing_date")  String addCloseDate,
-			@RequestParam("add_email") String addEmail,
-			@RequestParam("add_mobile") String addMobile,
-			@RequestParam("img") MultipartFile file,HttpServletResponse res) 
+			HttpServletResponse res,
+			@ModelAttribute("product_user") Product product) 
 			throws IOException {
 		
 		
-		System.out.println(file.getOriginalFilename());
-				res.sendRedirect("view_product") ;
+		System.out.println(product.getUsername());
+		
+		Session session = null;
+		session = HibernateDatabaseConnection.getSessionFactory().openSession();
+		
+		Transaction t = session.beginTransaction();
+		
+		session.save(product);
+		
+		t.commit();
+		
+		res.sendRedirect("view_product") ;
 		
 		
 	}

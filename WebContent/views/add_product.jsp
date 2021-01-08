@@ -108,44 +108,44 @@ body {
 
 
 <div class="login-form">
-    <form action="${pageContext.request.contextPath}/add_product_user" method="post" enctype="multipart/form-data">
+    <form action="${pageContext.request.contextPath}/add_product_user" method="post" modelAttribute="product_user" enctype="multipart/form-data">
         <h2>Add Product</h2>
         
         <div class="form-group">
              <label for="Uname">Username:</label>
-            <input type="text" class="form-control" name="add_username" required="required">
+            <input type="text" class="form-control" name="username" required="required">
         </div>
         <div class="form-group">
              <label for="product">Product:</label>
-            <input type="text" class="form-control" name="add_product" required="required">
+            <input type="text" class="form-control" name="product" required="required">
         </div>   
          <div class="form-group">
              <label for="details">Details:</label>
-            <input type="text" class="form-control" name="add_details" required="required">
+            <input type="text" class="form-control" name="details" required="required">
         </div>    
           <div class="form-group">
              <label for="min_bid">Minimum Bid:</label>
-            <input type="number" class="form-control" name="add_minimum_bid" required="required">
+            <input type="number" class="form-control" name="minimum_bid" required="required">
         </div> 
          <div class="form-group">
              <label for="openDate">Opening Date:</label>
-            <input type="date" class="form-control" name="add_opening_date" placeholder="Opening Date" required="required">
+            <input type="date" class="form-control" name="opening_date" placeholder="Opening Date" required="required">
         </div> 
          <div class="form-group">
              <label for="closeDate">Closing Date:</label>
-            <input type="date" class="form-control" name="add_closing_date" required="required">
+            <input type="date" class="form-control" name="closing_date" required="required">
         </div>  
          <div class="form-group">
              <label for="email">E-mail:</label>
-            <input type="email" class="form-control" name="add_email" required="required">
+            <input type="email" class="form-control" name="email" required="required">
         </div>   
         <div class="form-group">
              <label for="mobile">Mobile No:</label>
-            <input type="tel" class="form-control" name="add_mobile" required="required">
+            <input type="tel" class="form-control" name="mobile" required="required">
         </div>  
          <div class="form-group">
              <label for="img">Select image:</label>
-             <input type="file" id="img" name="img" accept="image/*">
+             <input type="file" id="img" name="image" accept="image/*">
         </div>    
         <div class="form-group">
             <button type="submit" class="btn btn-success btn-lg btn-block" style="background-color: #272A2B; border-color: none">Add</button>

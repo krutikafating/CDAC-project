@@ -109,13 +109,13 @@ body {
         <h2>User Login</h2>
         
         <div class="form-group">
-            <input type="text" class="form-control" name="username_user" placeholder="username" autocomplete="off" required="required">
+            <input type="text" class="form-control" name="email" placeholder="Email" autocomplete="off" required="required">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" name="password_user" placeholder="Password" required="required">
+            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
         </div>       
         <div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block" style="background-color: #272A2B; border-color: none">Login</button>
+            <button type="submit" class="btn btn-success btn-lg btn-block" style="background-color: #272A2B; border-color: none">Log In</button>
         </div>
         <div class="form-group" style="position:center">
             <a href="new_register" style="position:center;margin-left:150px;color:#1A1DD3">New Register!</a>
