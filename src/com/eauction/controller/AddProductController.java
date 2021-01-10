@@ -20,10 +20,14 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.eauction.db.HibernateDatabaseConnection;
 import com.eauction.model.Product;
 import com.eauction.model.User;
+import com.eauction.service.ProductService;
+import com.eauction.service.UserService;
 
 @Controller
 public class AddProductController {
 
+	ProductService productService = new ProductService();
+	
 	public AddProductController() {
 		
 	}
@@ -42,16 +46,7 @@ public class AddProductController {
 			throws IOException {
 		
 		
-		System.out.println(product.getUsername());
-		
-		Session session = null;
-		session = HibernateDatabaseConnection.getSessionFactory().openSession();
-		
-		Transaction t = session.beginTransaction();
-		
-		session.save(product);
-		
-		t.commit();
+		productService.persist(product);
 		
 		res.sendRedirect("view_product") ;
 		
