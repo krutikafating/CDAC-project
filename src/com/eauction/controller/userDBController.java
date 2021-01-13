@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.eauction.db.HibernateDatabaseConnection;
+import com.eauction.model.User;
 
 @Controller
 public class userDBController {
@@ -23,10 +24,10 @@ public class userDBController {
 	public String loadDashboard(HttpServletRequest req,HttpServletResponse res) throws IOException
 	{
 		
-		String username = (String)req.getSession().getAttribute("username_user");
+		User user = (User)req.getSession().getAttribute("user_object");
 		
-		if(username == null) {
-			res.sendRedirect("login-user");
+		if(user == null) {
+			res.sendRedirect("user");
 			
 		}
 		

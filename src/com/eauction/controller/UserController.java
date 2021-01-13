@@ -87,6 +87,7 @@ public class UserController {
 					req.getSession().setAttribute("first_name",users.get(0).getFirst_name() );
 					
 					try {
+						System.out.println("dashboard_user");
 						res.sendRedirect("dashboard_user");
 					}catch(Exception e) {
 						System.out.println(e);
