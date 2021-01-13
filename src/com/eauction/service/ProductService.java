@@ -31,6 +31,12 @@ public class ProductService {
         return product;
     }
  
+    public List<Product> findAllProductsdBySellerId(int id) {
+        productDao.openCurrentSession();
+        List<Product> products = productDao.findAllProductsdBySellerId(id);
+        productDao.closeCurrentSession();
+        return products;
+    }
     
     public void delete(String id) {
         productDao.openCurrentSessionwithTransaction();

@@ -83,7 +83,7 @@ public class UserController {
 //				m.addAttribute("users_list",users);
 				if(passwd.equals(users.get(0).getPassword()))
 				{
-					req.getSession().setAttribute("username_user", email);
+					req.getSession().setAttribute("user_object", users.get(0));
 					req.getSession().setAttribute("first_name",users.get(0).getFirst_name() );
 					
 					try {

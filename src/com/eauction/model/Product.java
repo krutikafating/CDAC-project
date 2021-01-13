@@ -25,6 +25,9 @@ public class Product {
 	@Column(name = "seller_id")
 	private int seller_id;
 	
+	@Column(name = "buyer_id")
+	private int buyer_id;
+	
 	@Column(name = "product")
 	private String product;
 	
@@ -38,6 +41,10 @@ public class Product {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date opening_date;
 	
+
+
+
+
 	@Column(name = "closing_date")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date closing_date;
@@ -48,6 +55,9 @@ public class Product {
 	@Column(name = "mobile")
 	private String mobile;
 
+	@Column(name = "status")
+	private String status;
+	
 	
 	
 
@@ -73,6 +83,14 @@ public class Product {
 
 	public void setSeller_id(int seller_id) {
 		this.seller_id = seller_id;
+	}
+	
+	public int getBuyer_id() {
+		return buyer_id;
+	}
+
+	public void setBuyer_id(int buyer_id) {
+		this.buyer_id = buyer_id;
 	}
 
 	public String getProduct() {
@@ -129,6 +147,14 @@ public class Product {
 
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 }

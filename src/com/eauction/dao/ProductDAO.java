@@ -69,9 +69,13 @@ public class ProductDAO  {
         Product product = (Product) getCurrentSession().get(Product.class, id);
         return product; 
     }
+    
+    public List<Product>  findAllProductsdBySellerId(int id) {
+    	List<Product> products = (List<Product>) getCurrentSession().createQuery(String.format("FROM Product where seller_id=%d", id)).list();
+        return products; 
+    }
  
-
- 
+   
     public void delete(Product entity) {
         getCurrentSession().delete(entity);
     }
