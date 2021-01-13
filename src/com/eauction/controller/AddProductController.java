@@ -41,11 +41,14 @@ public class AddProductController {
 
 	@RequestMapping(value = "/add_product_user", method = RequestMethod.POST)
 	public void addProduct(
+			HttpServletRequest req,
 			HttpServletResponse res,
 			@ModelAttribute("product_user") Product product) 
 			throws IOException {
 		
-		
+		int seller_id = ((User)req.getSession().getAttribute("user_object")).getId();
+		product.setSeller_id(seller_id);
+		product.setStatus("Active");
 		productService.persist(product);
 		
 		res.sendRedirect("view_product") ;
