@@ -75,6 +75,12 @@ public class ProductDAO  {
         return products; 
     }
  
+    public List<Product>  findAllProductsOtherThanSellerId(int id) {
+    	List<Product> products = (List<Product>) getCurrentSession().createQuery(String.format("FROM Product where seller_id <> %d", id)).list();
+        return products; 
+    }
+    
+    
    
     public void delete(Product entity) {
         getCurrentSession().delete(entity);

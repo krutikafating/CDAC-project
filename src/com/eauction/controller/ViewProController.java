@@ -31,7 +31,7 @@ public class ViewProController {
 
 		m.addAttribute("product_list",products);
 		
-		
+		System.out.println(products);
 		return "views/view_product"; 
 	}
 }

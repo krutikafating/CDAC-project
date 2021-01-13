@@ -108,7 +108,7 @@ body {
 
 
 <div class="login-form">
-    <form action="${pageContext.request.contextPath}/bid_action_product" method="post" enctype="multipart/form-data">
+    <form action="${pageContext.request.contextPath}/bid_action_product" method="post"  modelAttribute="applyBid"   enctype="multipart/form-data">
         <h2>Apply for Bid</h2>
         
         <div class="form-group">

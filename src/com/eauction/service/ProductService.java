@@ -38,6 +38,17 @@ public class ProductService {
         return products;
     }
     
+    public List<Product> findAllProductsOtherThanSellerId(int id) {
+        productDao.openCurrentSession();
+        List<Product> products = productDao.findAllProductsOtherThanSellerId(id);
+        productDao.closeCurrentSession();
+        return products;
+    }
+    
+    
+    
+    
+    
     public void delete(String id) {
         productDao.openCurrentSessionwithTransaction();
         Product product = productDao.findById(id);

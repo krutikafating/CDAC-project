@@ -203,14 +203,7 @@ public class UserController {
 		
 		
 		
-		//Add Auction action
 		
-		@RequestMapping( "/add_auctions")
-		public String getauctionProduct()
-		{	
-			
-			return "views/auction"; 
-		}
 		
 
 	}
