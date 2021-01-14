@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,12 +43,14 @@ public class AuctionController {
 				return "views/auction"; 
 			}
 			
-			
-	@RequestMapping( "/apply_bid")
-	public String getBidAmount(HttpServletRequest req,  Model m)
+	@RequestMapping(value = "/apply_bid/{id}", method=RequestMethod.GET)	
+	public String getBidAmount(@PathVariable("id")int id, HttpServletRequest req,  Model m)
 	{	
 
-		
+		Product product = productService.findById(id);
+		req.getSession().setAttribute("product" , product.getProduct());
+		req.getSession().setAttribute("product_details" , product.getDetails());
+		req.getSession().setAttribute("product_username" , product.getUsername());
 		return "views/apply_for_bid"; 
 	}
 	

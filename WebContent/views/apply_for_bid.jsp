@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+
+
+
+
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -23,7 +27,7 @@ body {
 .form-control {
     height: 40px;
     box-shadow: none;
-    color: #969fa4;
+    color: #272525;
 }
 .login-form {
     width: 450px;
@@ -32,7 +36,7 @@ body {
     font-size: 15px;
 }
 .login-form h2 {
-    color: #716D6D;
+    color: #272525;
     margin: 0 0 15px;
     position: relative;
     text-align: center;
@@ -58,7 +62,7 @@ body {
     text-align: center;
 }
 .login-form form {
-    color: #999;
+    color: #595959;
     border-radius: 3px;
     margin-bottom: 15px;
     background: #f2f3f7;
@@ -113,19 +117,19 @@ body {
         
         <div class="form-group">
              <label for="Uname">Username:</label>
-            <input type="text" class="form-control" name="bid_username" required="required">
+            <input type="text"class="form-control" name="bid_username" required="required">
         </div>
         <div class="form-group">
              <label for="product">Product:</label>
-            <input type="text" class="form-control" name="bid_product" required="required">
+            <input type="text" value = <%= session.getAttribute("product") %> class="form-control" name="bid_product" required="required"  disabled="disabled" >
         </div>   
          <div class="form-group">
              <label for="details">Details:</label>
-            <input type="text" class="form-control" name="bid_details" required="required">
+            <input type="text" value = <%= session.getAttribute("product_details") %> class="form-control" name="bid_details" required="required"  disabled="disabled">
         </div> 
         <div class="form-group">
              <label for="details">Owner:</label>
-            <input type="text" class="form-control" name="bid_owner" required="required">
+            <input type="text" value = <%= session.getAttribute("product_username") %> class="form-control" name="bid_owner" required="required"  disabled="disabled">
         </div>   
           <div class="form-group">
              <label for="min_bid">Bid Amount:</label>

@@ -48,9 +48,9 @@ table {
 		</div>
 	</nav>
 	<center>
-		<h2 style="color: #8321B4; font-family: Cursive">Product List</h2>
+		<h2 style="color: #8321B4; font-family: Cursive">Bids List</h2>
 	</center>
-
+<%-- 
 	<center>
 
 	<table border="1" cellspacing="10" cellpadding="10">
@@ -59,11 +59,9 @@ table {
 			<th>Username</th>
 			<th>Product</th>
 			<th>Details</th>
-			<th>Minimum bid</th>
-			<th>Opening date</th>
-			<th>Closing date</th>
-			<th>Email</th>
-			<th>Mobile</th>
+			<th>Owner</th>
+			<th>Date</th>
+			<th>Bid Amount</th>
 			<th>Action</th>
 
 		</thead>
@@ -75,17 +73,16 @@ table {
 				<td>${product.details}</td>
 				<td>${product.minimum_bid}</td>
 				<td><fmt:formatDate value="${product.opening_date}" pattern="yyyy-MM-dd"/></td>
-				<td><fmt:formatDate value="${product.closing_date}" pattern="yyyy-MM-dd"/></td>
 				<td>${product.email}</td>
 				<td>${product.mobile}</td>
 				
 				<td>
-					<a href = "viewbid">View bids</a>
+					<a href = "view_bid">View bids</a>
 				</td>
 			</tr>
 		</jstlc:forEach>
 	</table>
-	</center>
+	</center>--%>
 
 </body>
 </html>

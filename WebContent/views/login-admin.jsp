@@ -31,7 +31,7 @@ body {
     font-size: 15px;
 }
 .login-form h2 {
-    color: #716D6D;
+    color: #272525;
     margin: 0 0 15px;
     position: relative;
     text-align: center;

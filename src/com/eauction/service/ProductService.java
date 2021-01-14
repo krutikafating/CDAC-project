@@ -24,7 +24,7 @@ public class ProductService {
         productDao.closeCurrentSessionwithTransaction();
     }
  
-    public Product findById(String id) {
+    public Product findById(int id) {
         productDao.openCurrentSession();
         Product product = productDao.findById(id);
         productDao.closeCurrentSession();
@@ -51,7 +51,7 @@ public class ProductService {
     
     public void delete(String id) {
         productDao.openCurrentSessionwithTransaction();
-        Product product = productDao.findById(id);
+        Product product = productDao.findById(Integer.parseInt(id));
         productDao.delete(product);
         productDao.closeCurrentSessionwithTransaction();
     }

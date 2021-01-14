@@ -65,7 +65,7 @@ public class ProductDAO  {
         getCurrentSession().update(entity);
     }
  
-    public Product findById(String id) {
+    public Product findById(int id) {
         Product product = (Product) getCurrentSession().get(Product.class, id);
         return product; 
     }
