@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +13,12 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+
+
+
+
 <style>
 body {
     color: #000;
@@ -103,7 +110,6 @@ body {
 <body>
 
 
-
 <div class="login-form">
     <form action="${pageContext.request.contextPath}/login_action_user" method="post">
         <h2>User Login</h2>
@@ -114,13 +120,24 @@ body {
         <div class="form-group">
             <input type="password" class="form-control" name="password" placeholder="Password" required="required">
         </div>       
+        
+
+    	
+
+
+
         <div class="form-group">
             <button type="submit" class="btn btn-success btn-lg btn-block" style="background-color: #272A2B; border-color: none">Log In</button>
         </div>
         <div class="form-group" style="position:center">
             <a href="new_register" style="position:center;margin-left:150px;color:#1A1DD3">New Register!</a>
         </div>  
+       
+         <div class="form-group" style="position:center;text-align:center;color:black">${requestScope.message}
+        </div> 
     </form>
+    
+
 </div>
 </body>
 </html>

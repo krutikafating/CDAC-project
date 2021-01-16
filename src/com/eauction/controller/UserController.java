@@ -3,6 +3,7 @@ package com.eauction.controller;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,15 +18,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.eauction.dao.UserDAO;
 import com.eauction.db.HibernateDatabaseConnection;
 import com.eauction.model.User;
 import com.eauction.service.UserService;
+import com.eauction.util.Alerts;
 
 @Controller
 public class UserController {
@@ -37,20 +41,12 @@ public class UserController {
 		}
 	
 		@RequestMapping( "/user")
-		public String getLoginForm()
+		public String getLoginForm(HttpServletRequest req,
+				Model m)
 		{	
-			
-			
-//			Session session = null;
-//			session = HibernateDatabaseConnection.getSessionFactory().openSession();
-//			Query query2 = session.createQuery("FROM User");
-//			List users = query2.list();
-//
-//			System.out.println(users);
-//			m.addAttribute("users_list",users);
-//			
-			
-			
+			String message_from_req = (String)req.getSession().getAttribute("message");
+			 m.addAttribute("message", message_from_req);
+			 req.getSession().setAttribute("message", null);
 			return "views/login-user"; 
 			
 			
@@ -64,18 +60,16 @@ public class UserController {
 				@RequestParam("email") String email,
 				@RequestParam("password") String passwd,
 				HttpServletRequest req, 
-				HttpServletResponse res,Model m) 
+				HttpServletResponse res,Model m,
+				RedirectAttributes redirectAttributes) 
 				throws IOException {
 			
-//			Session session = null;
-//			session = HibernateDatabaseConnection.getSessionFactory().openSession();
-//			Query query2 = session.createQuery(String.format("FROM User where email='%s'", email));
-//			List<User> users = query2.list();
 			
 			
 			List<User> users = 	userService.findByEmail(email);
 			if(users.size() < 1) {
 				System.out.println("user not found");
+				req.getSession().setAttribute("message", "User not found!");
 					res.sendRedirect("user");
 				
 			}else {
@@ -104,37 +98,7 @@ public class UserController {
 			
 		}
 		
-//		
-//		public void checkCreds(
-//				@RequestParam("email") String usernm,
-//				@RequestParam("password") String passwd,
-//				HttpServletRequest req, 
-//				HttpServletResponse res) 
-//				throws IOException {
-//			
-//			if(usernm.equals("user") && passwd.equals("#user"))
-//			{
-//				req.getSession().setAttribute("username_user", usernm);
-//				
-////				
-//				try {
-//					res.sendRedirect("dashboard_user");
-//				}catch(Exception e) {
-//					System.out.println(e);
-//				}
-//				
-//			}
-//			else
-//			{
-//				res.sendRedirect("user");
-//			}
-			
-		
-		
-		
-		
-		
-		
+
 		//User logout action
 		
 		@RequestMapping("/logoutUser")
@@ -146,19 +110,15 @@ public class UserController {
 		}
 		
 		
-		
-		
-		
-		
-		
-		
 		//User New Registration action
 		
 		
 		@RequestMapping( "/new_register")
-		public String getRegisterForm()
+		public String getRegisterForm(HttpServletRequest req, Model m)
 		{	
-			
+			String message_from_req = (String)req.getSession().getAttribute("message");
+			 m.addAttribute("message", message_from_req);
+			 req.getSession().setAttribute("message", null);
 			return "views/register-user"; 
 		}
 		
@@ -169,19 +129,17 @@ public class UserController {
 				@ModelAttribute("register_new") User user1) 
 				throws IOException {
 			
+			//List<User> users = 	userService.findByEmail(user1.getEmail());
+			
+			
+			
 				if(user1.getPassword().equals(user1.getConfirm_password()))
 				{
 					
 					userService.persist(user1);
 		
-//					Session session = null;
-//					session = HibernateDatabaseConnection.getSessionFactory().openSession();
-//					
-//					Transaction t = session.beginTransaction();
-//					
-//					session.save(user1);
-//					t.commit();
 				try {
+					req.getSession().setAttribute("message", "Registration successful. Please login with your credentials.");  
 					res.sendRedirect("user");
 					}catch(Exception e) {
 						System.out.println(e);
@@ -190,7 +148,7 @@ public class UserController {
 			}
 			else
 			{
-				  
+				req.getSession().setAttribute("message", "Passwords must be same.");  
 				res.sendRedirect("new_register") ;
 			}
 		
@@ -199,9 +157,6 @@ public class UserController {
 			
 			
 		}
-		
-		
-		
 		
 		
 		

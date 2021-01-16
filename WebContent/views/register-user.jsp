@@ -135,9 +135,13 @@ body {
          <div class="form-group">
             <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
         </div>       
+          <div class="form-group" style="position:center;margin-left:150px;color:#ff0000">${requestScope.message}
+        </div> 
         <div class="form-group">
             <button type="submit" class="btn btn-success btn-lg btn-block" style="background-color: #272A2B; border-color: none">Register</button>
         </div>
+        
+        
     </form>
 </div>
 </body>
