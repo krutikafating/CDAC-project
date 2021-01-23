@@ -1,6 +1,8 @@
 package com.eauction.controller;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.eauction.model.Auction;
 import com.eauction.model.Product;
 import com.eauction.model.User;
+import com.eauction.service.AuctionService;
 import com.eauction.service.ProductService;
 
 @Controller
@@ -24,7 +27,10 @@ public class AuctionController {
 	
 	
 	ProductService productService = new ProductService();
-	
+	AuctionService auctionService = new AuctionService();
+	int targetted_productId ; //defined global variable for product id
+	int targetted_seller_id;
+	int targetted_buyer_id;
 	//Add Auction action
 	
 			@RequestMapping( "/add_auctions")
@@ -48,6 +54,9 @@ public class AuctionController {
 	{	
 
 		Product product = productService.findById(id);
+		targetted_productId = product.getId();
+		targetted_seller_id = product.getSeller_id();
+		targetted_buyer_id = ((User)req.getSession().getAttribute("user_object")).getId();
 		req.getSession().setAttribute("product" , product.getProduct());
 		req.getSession().setAttribute("product_details" , product.getDetails());
 		req.getSession().setAttribute("product_username" , product.getUsername());
@@ -62,6 +71,14 @@ public class AuctionController {
 			@ModelAttribute("applyBid") Auction auction) 
 			throws IOException {
 		
+		auction.setBuyer_id(targetted_buyer_id);
+		auction.setSeller_id(targetted_seller_id);
+		auction.setProduct_id(targetted_productId);
+		
+		Date date = new Date();
+		System.out.println(date);
+		auction.setDate(date);
+		auctionService.persist(auction);
 		res.sendRedirect("dashboard_user");
 	}
 }

@@ -14,5 +14,6 @@
    <property name="hibernate.current_session_context_class">thread</property>
    <mapping class="com.eauction.model.User"/>
    <mapping class="com.eauction.model.Product"/>
+      <mapping class="com.eauction.model.Auction"/>
 </session-factory>
 </hibernate-configuration>

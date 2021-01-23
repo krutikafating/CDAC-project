@@ -90,6 +90,7 @@ public class UserController {
 				}
 				else
 				{
+					req.getSession().setAttribute("message", "Password Incorrect");
 					res.sendRedirect("user");
 				}
 			}

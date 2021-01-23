@@ -9,6 +9,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import com.eauction.model.Auction;
 import com.eauction.model.Product;
 import com.eauction.model.User;
 
@@ -36,7 +37,8 @@ public class HibernateDatabaseConnection {
 
 	        MetadataSources sources = new MetadataSources(registry)
 	            .addAnnotatedClass(User.class)
-	            .addAnnotatedClass(Product.class);  //whenever we want to add more database table then add...
+	            .addAnnotatedClass(Product.class)
+	            .addAnnotatedClass(Auction.class);  //whenever we want to add more database table then add...
 
 	        Metadata metadata = sources.getMetadataBuilder().build();
 

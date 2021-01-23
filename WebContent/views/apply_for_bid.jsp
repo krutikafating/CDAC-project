@@ -133,7 +133,7 @@ body {
         </div>   
           <div class="form-group">
              <label for="min_bid">Bid Amount:</label>
-            <input type="number" class="form-control" name="bid_bidAmount" required="required">
+            <input type="number" class="form-control" name="bid_amount" required="required">
         </div>    
         <div class="form-group">
             <button type="submit" class="btn btn-success btn-lg btn-block" style="background-color: #272A2B; border-color: none">Add</button>
