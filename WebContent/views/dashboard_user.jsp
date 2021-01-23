@@ -46,7 +46,7 @@
 	</nav>
 	<center>
 		<h2 style="color: #8321B4;font-family:Cursive">
-  			Welcome <%= session.getAttribute("first_name") %>
+  			Welcome <%= session.getAttribute("full_name") %>
   		</h2>
   	</center>
 </body>

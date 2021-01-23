@@ -19,8 +19,8 @@ public class Product {
 	@Column(name = "id")
 	private int id;
 	
-	@Column(name = "username")
-	private String username;
+	@Column(name = "seller_full_name")
+	private String seller_full_name;
 	
 	@Column(name = "seller_id")
 	private int seller_id;
@@ -69,12 +69,12 @@ public class Product {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getSeller_full_name() {
+		return seller_full_name;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setSeller_full_name(String seller_full_name) {
+		this.seller_full_name = seller_full_name;
 	}
 
 	public int getSeller_id() {

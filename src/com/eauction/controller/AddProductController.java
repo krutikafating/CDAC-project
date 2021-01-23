@@ -47,8 +47,10 @@ public class AddProductController {
 			throws IOException {
 		
 		int seller_id = ((User)req.getSession().getAttribute("user_object")).getId();
+		String seller_full_name = ((User)req.getSession().getAttribute("user_object")).getFull_name();
 		product.setSeller_id(seller_id);
 		product.setStatus("Active");
+		product.setSeller_full_name(seller_full_name);
 		productService.persist(product);
 		
 		res.sendRedirect("view_product") ;

@@ -55,19 +55,16 @@ table {
 
 	<table border="1" cellspacing="10" cellpadding="10">
 		<thead>
-			<th>id</th>
-			<th>Username</th>
+			<th>Buyer Name</th>
 			<th>Product</th>
 			<th>Details</th>
-			<th>Owner</th>
 			<th>Date</th>
 			<th>Bid Amount</th>
 			<th>Action</th>
 
 		</thead>
-		<jstlc:forEach var="product" items="${product_list}">
+		<jstlc:forEach var="auction" items="${product_list}">
 			<tr>
-				<td>${product.id}</td>
 				<td>${product.username}</td>
 				<td>${product.product}</td>
 				<td>${product.details}</td>

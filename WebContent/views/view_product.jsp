@@ -56,7 +56,6 @@ table {
 	<table border="1" cellspacing="10" cellpadding="10">
 		<thead>
 			<th>id</th>
-			<th>Username</th>
 			<th>Product</th>
 			<th>Details</th>
 			<th>Minimum bid</th>
@@ -70,7 +69,6 @@ table {
 		<jstlc:forEach var="product" items="${product_list}">
 			<tr>
 				<td>${product.id}</td>
-				<td>${product.username}</td>
 				<td>${product.product}</td>
 				<td>${product.details}</td>
 				<td>${product.minimum_bid}</td>

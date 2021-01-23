@@ -78,7 +78,7 @@ public class UserController {
 				if(passwd.equals(users.get(0).getPassword()))
 				{
 					req.getSession().setAttribute("user_object", users.get(0));
-					req.getSession().setAttribute("first_name",users.get(0).getFirst_name() );
+					req.getSession().setAttribute("full_name",users.get(0).getFull_name() );
 					
 					try {
 						System.out.println("dashboard_user");

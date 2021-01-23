@@ -116,10 +116,6 @@ body {
         <h2>Apply for Bid</h2>
         
         <div class="form-group">
-             <label for="Uname">Username:</label>
-            <input type="text"class="form-control" name="bid_username" required="required">
-        </div>
-        <div class="form-group">
              <label for="product">Product:</label>
             <input type="text" value = <%= session.getAttribute("product") %> class="form-control" name="bid_product" required="required"  disabled="disabled" >
         </div>   

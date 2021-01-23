@@ -73,7 +73,7 @@ table {
 		<jstlc:forEach var="product" items="${product_list_auction}">
 			<tr>
 				<td>${product.id}</td>
-				<td>${product.username}</td>
+				<td>${product.seller_full_name}</td>
 				<td>${product.product}</td>
 				<td>${product.details}</td>
 				<td>${product.minimum_bid}</td>

@@ -112,11 +112,9 @@ body {
         <h2>Register User</h2>
         
         <div class="form-group">
-            <input type="text" class="form-control" name="first_name" placeholder="First Name" required="required">
+            <input type="text" class="form-control" name="full_name" placeholder="Full Name" required="required">
         </div>
-        <div class="form-group">
-            <input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required">
-        </div>   
+         
          <div class="form-group">
             <input type="email" class="form-control" name="email" placeholder="Email id" required="required">
         </div>    

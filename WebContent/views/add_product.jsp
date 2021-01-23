@@ -111,10 +111,7 @@ body {
     <form action="${pageContext.request.contextPath}/add_product_user" method="post" modelAttribute="product_user" enctype="multipart/form-data">
         <h2>Add Product</h2>
         
-        <div class="form-group">
-             <label for="Uname">Username:</label>
-            <input type="text" class="form-control" name="username" required="required">
-        </div>
+        
         <div class="form-group">
              <label for="product">Product:</label>
             <input type="text" class="form-control" name="product" required="required">
