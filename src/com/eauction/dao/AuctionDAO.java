@@ -71,12 +71,12 @@ public class AuctionDAO  {
     }
     
     public List<Auction>  findAllAuctionsdBySellerId(int id) {
-    	List<Auction> auctions = (List<Auction>) getCurrentSession().createQuery(String.format("FROM Auction where seller_id=%d", id)).list();
+    	List<Auction> auctions = (List<Auction>) getCurrentSession().createQuery(String.format("FROM Auction where seller_id = %d", id)).list();
         return auctions; 
     }
  
-    public List<Auction>  findAllAuctionsOtherThanSellerId(int id) {
-    	List<Auction> auctions = (List<Auction>) getCurrentSession().createQuery(String.format("FROM Auction where seller_id <> %d", id)).list();
+    public List<Auction>  findAllAuctionsdBySellerIdAndProductId(int seller_id, int product_id) {
+    	List<Auction> auctions = (List<Auction>) getCurrentSession().createQuery(String.format("FROM Auction where seller_id = %d AND product_id = %d",seller_id,product_id)).list();
         return auctions; 
     }
     

@@ -50,36 +50,36 @@ table {
 	<center>
 		<h2 style="color: #8321B4; font-family: Cursive">Bids List</h2>
 	</center>
-<%-- 
+
 	<center>
 
 	<table border="1" cellspacing="10" cellpadding="10">
 		<thead>
+			<th>Sr.No</th>
 			<th>Buyer Name</th>
 			<th>Product</th>
-			<th>Details</th>
-			<th>Date</th>
 			<th>Bid Amount</th>
+			<th>Applied Date</th>
+			<th>Status</th>
 			<th>Action</th>
 
 		</thead>
-		<jstlc:forEach var="auction" items="${product_list}">
+		<% int i = 1; %>
+		<jstlc:forEach var="auction" items="${bids_list}">
 			<tr>
-				<td>${product.username}</td>
-				<td>${product.product}</td>
-				<td>${product.details}</td>
-				<td>${product.minimum_bid}</td>
-				<td><fmt:formatDate value="${product.opening_date}" pattern="yyyy-MM-dd"/></td>
-				<td>${product.email}</td>
-				<td>${product.mobile}</td>
-				
+				<td></td>
+				<td>${auction.buyer_name}</td>
+				<td>${auction.product_name}</td>
+				<td>${auction.bid_amount}</td>
+				<td><fmt:formatDate value="${auction.date}" pattern="yyyy-MM-dd"/></td>
+				<td>${auction.status}</td>
 				<td>
-					<a href = "view_bid">View bids</a>
+					<a href = "accept_bid/${auction.id}">Accept</a>
 				</td>
 			</tr>
 		</jstlc:forEach>
 	</table>
-	</center>--%>
+	</center>
 
 </body>
 </html>

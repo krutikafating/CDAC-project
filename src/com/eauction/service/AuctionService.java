@@ -38,13 +38,13 @@ public class AuctionService {
         return auctions;
     }
     
-//    public List<Auction> findAllAuctionsOtherThanSellerId(int id) {
-//        auctionDao.openCurrentSession();
-//        List<Auction> auctions = auctionDao.findAllAuctionsOtherThanSellerId(id);
-//        auctionDao.closeCurrentSession();
-//        return auctions;
-//    }
-//    
+    public List<Auction> findAllAuctionsdBySellerIdAndProductId(int seller_id, int product_id) {
+        auctionDao.openCurrentSession();
+        List<Auction> auctions = auctionDao.findAllAuctionsdBySellerIdAndProductId(seller_id,product_id);
+        auctionDao.closeCurrentSession();
+        return auctions;
+    }
+    
     
     
     

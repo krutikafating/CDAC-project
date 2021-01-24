@@ -78,7 +78,7 @@ table {
 				<td>${product.mobile}</td>
 				
 				<td>
-					<a href = "viewbid">View bids</a>
+					<a href = "viewbid/${product.id}">View bids</a>
 				</td>
 			</tr>
 		</jstlc:forEach>
