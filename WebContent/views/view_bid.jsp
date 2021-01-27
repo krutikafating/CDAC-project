@@ -50,6 +50,7 @@ table {
 	<center>
 		<h2 style="color: #8321B4; font-family: Cursive">Bids List</h2>
 	</center>
+	
 
 	<center>
 
@@ -64,7 +65,7 @@ table {
 			<th>Action</th>
 
 		</thead>
-		<% int i = 1; %>
+		
 		<jstlc:forEach var="auction" items="${bids_list}">
 			<tr>
 				<td></td>
@@ -79,7 +80,18 @@ table {
 			</tr>
 		</jstlc:forEach>
 	</table>
+	
+	<button onclick="goBack()" style="margin-top:20px">Go Back</button>
+	
+	<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+	
 	</center>
+	
+
 
 </body>
 </html>

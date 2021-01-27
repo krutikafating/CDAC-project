@@ -1,8 +1,11 @@
 package com.eauction.controller;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 
-import javax.servlet.annotation.MultipartConfig;
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
@@ -15,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.eauction.db.HibernateDatabaseConnection;
 import com.eauction.model.Product;
@@ -43,16 +45,24 @@ public class AddProductController {
 	public void addProduct(
 			HttpServletRequest req,
 			HttpServletResponse res,
-			@ModelAttribute("product_user") Product product) 
+			@ModelAttribute("product_user") Product product,
+			@RequestParam("image") MultipartFile multipartImage) 
 			throws IOException {
 		
+
+		 
 		int seller_id = ((User)req.getSession().getAttribute("user_object")).getId();
 		String seller_full_name = ((User)req.getSession().getAttribute("user_object")).getFull_name();
 		product.setSeller_id(seller_id);
 		product.setStatus("Active");
 		product.setSeller_full_name(seller_full_name);
+		
+		
+		
+		
 		productService.persist(product);
 		
+		//System.out.println(product.getImage());
 		res.sendRedirect("view_product") ;
 		
 		

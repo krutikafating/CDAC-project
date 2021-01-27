@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,10 +48,5 @@
 			</div>
 		</div>
 	</nav>
-	<center>
-		<h2 style="color: #8321B4;font-family:Cursive">
-  			Welcome <%= session.getAttribute("full_name") %>
-  		</h2>
-  	</center>
-</body>
-</html>
+	</body>
+	</html>

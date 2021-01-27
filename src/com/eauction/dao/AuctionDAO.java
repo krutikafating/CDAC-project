@@ -80,7 +80,10 @@ public class AuctionDAO  {
         return auctions; 
     }
     
-    
+    public List<Auction> findAllProductsdByBuyerId(int id) {
+    	List<Auction> auctions = (List<Auction>) getCurrentSession().createQuery(String.format("FROM Auction where buyer_id = %d", id)).list();
+        return auctions; 
+    }
    
     public void delete(Auction entity) {
         getCurrentSession().delete(entity);

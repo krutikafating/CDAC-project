@@ -2,9 +2,12 @@ package com.eauction.model;
 
 import java.util.Date;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -58,7 +61,13 @@ public class Product {
 	@Column(name = "status")
 	private String status;
 	
-	
+//	@Lob
+//	@Basic(fetch = FetchType.LAZY)
+//	@Column(columnDefinition = "BLOB NOT NULL")
+//	private byte[] image;
+//
+//	
+
 	
 
 	public int getId() {
@@ -157,4 +166,11 @@ public class Product {
 		this.status = status;
 	}
 	
+//	public byte[] getImage() {
+//		return image;
+//	}
+//
+//	public void setImage(byte[] image) {
+//		this.image = image;
+//	}
 }

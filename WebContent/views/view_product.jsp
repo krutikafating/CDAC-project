@@ -83,6 +83,13 @@ table {
 			</tr>
 		</jstlc:forEach>
 	</table>
+	
+	<button onclick="goBack()" style="margin-top:20px">Go Back</button>
+	<script>
+function goBack() {
+  window.history.back();
+}
+</script>
 	</center>
 
 </body>

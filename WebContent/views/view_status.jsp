@@ -1,3 +1,8 @@
+
+<%@ taglib prefix="jstlc" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +21,15 @@
     margin-bottom: 0;
     border-radius: 0;
 }
+tr, th	{
+    text-align:center;
+      padding:20px;
+}
+
+table {
+    background-color: #FFFFCC;
+}
+
 
 
 </style>
@@ -39,6 +53,41 @@
    <center>
         <h2 style="color: #8321B4;font-family:Cursive">View Status</h2>
    </center>
+   
+   <center>
+
+	<table border="1" cellspacing="10" cellpadding="10">
+		<thead>
+		
+			<th>Product</th>
+			<th>Bid Amount</th>
+			<th>Applied Date</th>
+			<th>Status</th>
+
+		</thead>
+		
+		<jstlc:forEach var="auction" items="${status_list}">
+			<tr>
+				<td>${auction.product_name}</td>
+				<td>${auction.bid_amount}</td>
+				<td><fmt:formatDate value="${auction.date}" pattern="yyyy-MM-dd"/></td>
+				<td>${auction.status}</td>
+			</tr>
+		</jstlc:forEach>
+	</table>
+	
+	<button onclick="goBack()" style="margin-top:20px">Go Back</button>
+	
+	<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+	
+	</center>
+   
+   
+   
 
 </body>
 </html>

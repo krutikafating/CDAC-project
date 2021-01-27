@@ -45,6 +45,13 @@ public class AuctionService {
         return auctions;
     }
     
+    public List<Auction> findAllProductsdByBuyerId(int id) {
+        auctionDao.openCurrentSession();
+        List<Auction> auctions = auctionDao.findAllProductsdByBuyerId(id);
+        auctionDao.closeCurrentSession();
+        return auctions;
+    }
+    
     
     
     
