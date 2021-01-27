@@ -32,7 +32,8 @@ CREATE TABLE `auction` (
   `buyer_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `date` date NOT NULL,
-  `bid_amount` int(11) NOT NULL
+  `bid_amount` int(11) NOT NULL,
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -60,10 +61,8 @@ INSERT INTO `hibernate_sequence` (`next_val`) VALUES
 
 CREATE TABLE `product` (
   `id` int(11) NOT NULL,
-  `username` varchar(20) NOT NULL,
   `seller_id` int(11) NOT NULL,
-  `buyer_id` int(11) NOT NULL,
-  `product` varchar(20) NOT NULL,
+  `product_name` varchar(20) NOT NULL,
   `details` varchar(50) NOT NULL,
   `minimum_bid` int(11) NOT NULL,
   `opening_date` date NOT NULL,
@@ -83,8 +82,7 @@ CREATE TABLE `product` (
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `first_name` varchar(20) NOT NULL,
-  `last_name` varchar(20) NOT NULL,
+  `full_name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `address` varchar(50) NOT NULL,
   `dob` date NOT NULL,
