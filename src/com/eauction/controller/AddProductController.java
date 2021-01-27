@@ -51,18 +51,11 @@ public class AddProductController {
 		
 
 		 
-		int seller_id = ((User)req.getSession().getAttribute("user_object")).getId();
-		String seller_full_name = ((User)req.getSession().getAttribute("user_object")).getFull_name();
-		product.setSeller_id(seller_id);
+		User seller = ((User)req.getSession().getAttribute("user_object"));
+		product.setSeller(seller);
 		product.setStatus("Active");
-		product.setSeller_full_name(seller_full_name);
-		
-		
-		
 		
 		productService.persist(product);
-		
-		//System.out.println(product.getImage());
 		res.sendRedirect("view_product") ;
 		
 		

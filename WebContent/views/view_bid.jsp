@@ -69,8 +69,8 @@ table {
 		<jstlc:forEach var="auction" items="${bids_list}">
 			<tr>
 				<td></td>
-				<td>${auction.buyer_name}</td>
-				<td>${auction.product_name}</td>
+				<td>${auction.buyer.full_name}</td>
+				<td>${auction.product.product_name}</td>
 				<td>${auction.bid_amount}</td>
 				<td><fmt:formatDate value="${auction.date}" pattern="yyyy-MM-dd"/></td>
 				<td>${auction.status}</td>

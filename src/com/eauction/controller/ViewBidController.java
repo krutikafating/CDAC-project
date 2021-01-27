@@ -57,7 +57,7 @@ public class ViewBidController {
 			auctionService.update(bids.get(i));
 		}
 		
-		String mapping_string = req.getContextPath() + "/viewbid/" + bids.get(0).getProduct_id();
+		String mapping_string = req.getContextPath() + "/viewbid/" + bids.get(0).getProduct().getId();
 		res.sendRedirect(mapping_string);
 	
 	}

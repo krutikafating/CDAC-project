@@ -116,8 +116,8 @@ body {
         
         
         <div class="form-group">
-             <label for="product">Product:</label>
-            <input type="text" class="form-control" name="product" required="required">
+             <label for="product_name">Product:</label>
+            <input type="text" class="form-control" name="product_name" required="required">
         </div>   
          <div class="form-group">
              <label for="details">Details:</label>

@@ -7,7 +7,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -22,17 +25,12 @@ public class Product {
 	@Column(name = "id")
 	private int id;
 	
-	@Column(name = "seller_full_name")
-	private String seller_full_name;
+    @ManyToOne
+    @JoinColumn(name="seller_id", referencedColumnName="id")
+    User seller;
 	
-	@Column(name = "seller_id")
-	private int seller_id;
-	
-	@Column(name = "buyer_id")
-	private int buyer_id;
-	
-	@Column(name = "product")
-	private String product;
+	@Column(name = "product_name")
+	private String product_name;
 	
 	@Column(name = "details")
 	private String details;
@@ -40,6 +38,8 @@ public class Product {
 	@Column(name = "minimum_bid")
 	private int minimum_bid;
 	
+	
+
 	@Column(name = "opening_date")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date opening_date;
@@ -77,37 +77,24 @@ public class Product {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public String getSeller_full_name() {
-		return seller_full_name;
-	}
-
-	public void setSeller_full_name(String seller_full_name) {
-		this.seller_full_name = seller_full_name;
-	}
-
-	public int getSeller_id() {
-		return seller_id;
-	}
-
-	public void setSeller_id(int seller_id) {
-		this.seller_id = seller_id;
-	}
 	
-	public int getBuyer_id() {
-		return buyer_id;
+	public User getSeller() {
+		return seller;
 	}
 
-	public void setBuyer_id(int buyer_id) {
-		this.buyer_id = buyer_id;
+	public void setSeller(User seller) {
+		this.seller = seller;
 	}
 
-	public String getProduct() {
-		return product;
+
+	
+
+	public String getProduct_name() {
+		return product_name;
 	}
 
-	public void setProduct(String product) {
-		this.product = product;
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
 	}
 
 	public String getDetails() {

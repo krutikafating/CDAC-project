@@ -69,7 +69,7 @@ table {
 		<jstlc:forEach var="product" items="${product_list}">
 			<tr>
 				<td>${product.id}</td>
-				<td>${product.product}</td>
+				<td>${product.product_name}</td>
 				<td>${product.details}</td>
 				<td>${product.minimum_bid}</td>
 				<td><fmt:formatDate value="${product.opening_date}" pattern="yyyy-MM-dd"/></td>

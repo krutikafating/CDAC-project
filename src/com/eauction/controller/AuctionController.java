@@ -28,12 +28,9 @@ public class AuctionController {
 	
 	ProductService productService = new ProductService();
 	AuctionService auctionService = new AuctionService();
-	int targetted_productId ; //defined global variable for product id
-	int targetted_seller_id;
-	int targetted_buyer_id;
-	String targetted_seller_name;
-	String targetted_buyer_name;
-	String targetted_product_name;
+	Product targetted_product ; //defined global variable for product id
+	User targetted_seller;
+	User targetted_buyer;
 	//Add Auction action
 	
 			@RequestMapping( "/add_auctions")
@@ -57,15 +54,12 @@ public class AuctionController {
 	{	
 
 		Product product = productService.findById(id);
-		targetted_productId = product.getId();
-		targetted_seller_id = product.getSeller_id();
-		targetted_buyer_id = ((User)req.getSession().getAttribute("user_object")).getId();
-		targetted_buyer_name = ((User)req.getSession().getAttribute("user_object")).getFull_name();
-		targetted_seller_name = product.getSeller_full_name();
-		targetted_product_name = product.getProduct();
-		req.getSession().setAttribute("product" , product.getProduct());
+		targetted_product = product;
+		targetted_seller = product.getSeller();
+		targetted_buyer = ((User)req.getSession().getAttribute("user_object"));
+		req.getSession().setAttribute("product" , product.getProduct_name());
 		req.getSession().setAttribute("product_details" , product.getDetails());
-		req.getSession().setAttribute("product_username" , product.getSeller_full_name());
+		req.getSession().setAttribute("product_username" , product.getSeller().getFull_name());
 		return "views/apply_for_bid"; 
 	}
 	
@@ -77,12 +71,9 @@ public class AuctionController {
 			@ModelAttribute("applyBid") Auction auction) 
 			throws IOException {
 		
-		auction.setBuyer_id(targetted_buyer_id);
-		auction.setSeller_id(targetted_seller_id);
-		auction.setProduct_id(targetted_productId);
-		auction.setBuyer_name(targetted_buyer_name);
-		auction.setSeller_name(targetted_seller_name);
-		auction.setProduct_name(targetted_product_name);
+		auction.setBuyer(targetted_buyer);
+		auction.setSeller(targetted_seller);
+		auction.setProduct(targetted_product);
 		auction.setStatus("Active");
 		
 		Date date = new Date();
