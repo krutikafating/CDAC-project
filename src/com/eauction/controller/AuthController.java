@@ -46,11 +46,11 @@ public class AuthController {
 	}
 	
 	@RequestMapping("/logout")
-	public void logoutAdminUser(HttpServletRequest req,HttpServletResponse res) throws IOException
+	public String logoutAdminUser(HttpServletRequest req,HttpServletResponse res) throws IOException
 	{
 		req.getSession().invalidate();
 		
-		res.sendRedirect("login");
+		return "views/auctionheader";
 	}
 }
 

@@ -103,11 +103,12 @@ public class UserController {
 		//User logout action
 		
 		@RequestMapping("/logoutUser")
-		public void logoutUser(HttpServletRequest req,HttpServletResponse res) throws IOException
+		public String logoutUser(HttpServletRequest req,HttpServletResponse res) throws IOException
 		{
 			req.getSession().invalidate();
 			
-			res.sendRedirect("user");
+			//res.sendRedirect("user");
+			return "views/auctionheader";
 		}
 		
 		

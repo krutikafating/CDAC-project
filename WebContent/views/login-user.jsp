@@ -15,10 +15,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 
-
-
-
-
 <style>
 body {
     color: #000;
@@ -121,13 +117,8 @@ body {
             <input type="password" class="form-control" name="password" placeholder="Password" required="required">
         </div>       
         
-
-    	
-
-
-
         <div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block" style="background-color: #272A2B; border-color: none">Log In</button>
+            <button type="submit" class="btn btn-success btn-lg btn-block"  style="background-color: #272A2B; border-color: none" >Log In</button>
         </div>
         <div class="form-group" style="position:center">
             <a href="new_register" style="position:center;margin-left:150px;color:#1A1DD3">New Register!</a>

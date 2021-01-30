@@ -104,7 +104,7 @@ table {
 		<button onclick="goBack()" style="margin-top: 20px">Go Back</button>
 		<script>
 			function goBack() {
-				window.history.back();
+				 window.location.href = "http://localhost:8080/E-Auction/dashboard_user";
 			}
 		</script>
 	</center>
