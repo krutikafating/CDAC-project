@@ -144,8 +144,8 @@ body {
             <input type="tel" class="form-control" name="mobile" required="required">
         </div>  
          <div class="form-group">
-             <label for="img">Select image:</label>
-             <input type="file" id="img" name="image" accept="image/*">
+             <label for="image">Select image:</label>
+             <input type="file" id="file" name="file" accept="image/*">
         </div>    
         <div class="form-group">
             <button type="submit" class="btn btn-success btn-lg btn-block" style="background-color: #272A2B; border-color: none">Add</button>

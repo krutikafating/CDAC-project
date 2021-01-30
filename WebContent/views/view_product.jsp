@@ -1,6 +1,6 @@
 
 <%@ taglib prefix="jstlc" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,21 +14,37 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
+.image {
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+}
+
+.image img {
+	width: 100%;
+	transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s
+		ease-in-out;
+}
+
+.image:hover img {
+	transform: scale(2);
+}
+
 .navbar {
 	margin-bottom: 0;
 	border-radius: 0;
+	transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s
+		ease-in-out;
 }
 
-tr, th	{
-    text-align:center;
-      padding:20px;
+tr, th {
+	text-align: center;
+	padding: 20px;
 }
 
 table {
-    background-color: #FFFFCC;
+	background-color: #FFFFCC;
 }
-
-
 </style>
 
 </head>
@@ -53,43 +69,44 @@ table {
 
 	<center>
 
-	<table border="1" cellspacing="10" cellpadding="10">
-		<thead>
-			<th>id</th>
-			<th>Product</th>
-			<th>Details</th>
-			<th>Minimum bid</th>
-			<th>Opening date</th>
-			<th>Closing date</th>
-			<th>Email</th>
-			<th>Mobile</th>
-			<th>Action</th>
+		<table border="1" cellspacing="10" cellpadding="10">
+			<thead>
+				<th>Product</th>
+				<th>Details</th>
+				<th>Minimum bid</th>
+				<th>Opening date</th>
+				<th>Closing date</th>
+				<th>Email</th>
+				<th>Mobile</th>
+				<th>Product Image</th>
+				<th>Action</th>
 
-		</thead>
-		<jstlc:forEach var="product" items="${product_list}">
-			<tr>
-				<td>${product.id}</td>
-				<td>${product.product_name}</td>
-				<td>${product.details}</td>
-				<td>${product.minimum_bid}</td>
-				<td><fmt:formatDate value="${product.opening_date}" pattern="yyyy-MM-dd"/></td>
-				<td><fmt:formatDate value="${product.closing_date}" pattern="yyyy-MM-dd"/></td>
-				<td>${product.email}</td>
-				<td>${product.mobile}</td>
-				
-				<td>
-					<a href = "viewbid/${product.id}">View bids</a>
-				</td>
-			</tr>
-		</jstlc:forEach>
-	</table>
-	
-	<button onclick="goBack()" style="margin-top:20px">Go Back</button>
-	<script>
-function goBack() {
-  window.history.back();
-}
-</script>
+			</thead>
+			<jstlc:forEach var="product" items="${product_list}">
+				<tr>
+					<td>${product.product_name}</td>
+					<td>${product.details}</td>
+					<td>${product.minimum_bid}</td>
+					<td><fmt:formatDate value="${product.opening_date}"
+							pattern="yyyy-MM-dd" /></td>
+					<td><fmt:formatDate value="${product.closing_date}"
+							pattern="yyyy-MM-dd" /></td>
+					<td>${product.email}</td>
+					<td>${product.mobile}</td>
+					<td><div class="image">
+							<img width="100" height="100" src="getImage/${product.id}">
+						</div></td>
+					<td><a href="viewbid/${product.id}">View bids</a></td>
+				</tr>
+			</jstlc:forEach>
+		</table>
+
+		<button onclick="goBack()" style="margin-top: 20px">Go Back</button>
+		<script>
+			function goBack() {
+				window.history.back();
+			}
+		</script>
 	</center>
 
 </body>

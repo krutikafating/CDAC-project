@@ -20,10 +20,12 @@
 
 	<mvc:resources mapping="/images/**" location="/images/" />
 	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="2000000" />
+		</bean>
 
 
-
+	
 
 
 	<bean
@@ -36,6 +38,13 @@
 
 	</bean>
 
-
+    <bean
+        class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.Exception">Error</prop>
+            </props>
+        </property>
+    </bean>  
 </beans>
 

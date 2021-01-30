@@ -45,7 +45,13 @@ public class ProductService {
         return products;
     }
     
-    
+    public Product getImage(int id)
+    {
+    	 productDao.openCurrentSession();
+    	 Product item = productDao.getImage(id);
+    	  productDao.closeCurrentSession();
+          return item;
+    }
     
     
     

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.eauction.db.HibernateDatabaseConnection;
 import com.eauction.model.Product;
@@ -46,7 +47,7 @@ public class AddProductController {
 			HttpServletRequest req,
 			HttpServletResponse res,
 			@ModelAttribute("product_user") Product product,
-			@RequestParam("image") MultipartFile multipartImage) 
+			@RequestParam("file") MultipartFile multipartImage) 
 			throws IOException {
 		
 
@@ -54,6 +55,8 @@ public class AddProductController {
 		User seller = ((User)req.getSession().getAttribute("user_object"));
 		product.setSeller(seller);
 		product.setStatus("Active");
+		
+		product.setImage(multipartImage.getBytes());
 		
 		productService.persist(product);
 		res.sendRedirect("view_product") ;

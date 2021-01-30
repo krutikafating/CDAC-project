@@ -61,13 +61,13 @@ public class Product {
 	@Column(name = "status")
 	private String status;
 	
-//	@Lob
-//	@Basic(fetch = FetchType.LAZY)
-//	@Column(columnDefinition = "BLOB NOT NULL")
-//	private byte[] image;
-//
-//	
+	@Lob
+	@Basic(fetch = FetchType.LAZY)
+	@Column(columnDefinition = "BLOB NOT NULL" , name = "image")
+	private byte[] image;
+	
 
+	
 	
 
 	public int getId() {
@@ -152,12 +152,12 @@ public class Product {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
 	
-//	public byte[] getImage() {
-//		return image;
-//	}
-//
-//	public void setImage(byte[] image) {
-//		this.image = image;
-//	}
 }

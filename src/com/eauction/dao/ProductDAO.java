@@ -80,6 +80,11 @@ public class ProductDAO  {
         return products; 
     }
     
+    public Product getImage(int id)
+    {
+    	Product item = (Product) getCurrentSession().get(Product.class, id);
+    	 return item; 
+    }
     
    
     public void delete(Product entity) {
