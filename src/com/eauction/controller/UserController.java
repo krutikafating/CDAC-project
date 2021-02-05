@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
 
@@ -41,17 +42,23 @@ public class UserController {
 		}
 	
 		@RequestMapping( "/user")
-		public String getLoginForm(HttpServletRequest req,
+		public String getLoginForm(HttpServletRequest req,HttpServletResponse res,
 				Model m)
 		{	
 			String message_from_req = (String)req.getSession().getAttribute("message");
 			 m.addAttribute("message", message_from_req);
-			 req.getSession().setAttribute("message", null);
-			return "views/login-user"; 
-			
-			
-			
-			
+			 HttpSession session = req.getSession();
+			 session.setAttribute("message", null);
+			 
+			 User user = (User)req.getSession().getAttribute("user_object");
+			 
+			 if(user == null) {
+				 return "views/login-user"; 
+			 }else {
+				 
+				 return "redirect:dashboard_user";
+			 }
+					
 		}
 
 		
@@ -94,8 +101,6 @@ public class UserController {
 					res.sendRedirect("user");
 				}
 			}
-		
-			
 			
 		}
 		
@@ -133,8 +138,6 @@ public class UserController {
 			
 			//List<User> users = 	userService.findByEmail(user1.getEmail());
 			
-			
-			
 				if(user1.getPassword().equals(user1.getConfirm_password()))
 				{
 					
@@ -154,15 +157,8 @@ public class UserController {
 				res.sendRedirect("new_register") ;
 			}
 		
-				
-			
-			
-			
 		}
 		
-		
-		
-
 	}
 	
 

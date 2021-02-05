@@ -2,134 +2,163 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto:400,700">
 <title>Contact Us</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 
 
 <style>
 body {
-    color: #000;
-    background: #272A2B;
-    font-family: 'Roboto', sans-serif;
+	color: #000;
+	background: #272A2B;
+	font-family: 'Roboto', sans-serif;
 }
+
 .form-control {
-    height: 40px;
-    box-shadow: none;
-    color: #969fa4;
+	height: 40px;
+	box-shadow: none;
+	color: #969fa4;
 }
+
 .login-form {
-    width: 450px;
-    margin: 0 auto;
-    margin-top: 60px;
-    padding: 30px 0;
-    font-size: 15px;
+	width: 450px;
+	margin: 0 auto;
+	margin-top: 60px;
+	padding: 30px 0;
+	font-size: 15px;
 }
+
 .login-form h2 {
-    color: #716D6D;
-    margin: 0 0 15px;
-    position: relative;
-    text-align: center;
+	color: #716D6D;
+	margin: 0 0 15px;
+	position: relative;
+	text-align: center;
 }
+
 .login-form h2:before, .login-form h2:after {
-    content: "";
-    height: 2px;
-    width: 20%;
-    background: #716D6D;
-    position: absolute;
-    top: 50%;
-    z-index: 2;
-}   
+	content: "";
+	height: 2px;
+	width: 20%;
+	background: #716D6D;
+	position: absolute;
+	top: 50%;
+	z-index: 2;
+}
+
 .login-form h2:before {
-    left: 0;
+	left: 0;
 }
+
 .login-form h2:after {
-    right: 0;
+	right: 0;
 }
+
 .login-form .hint-text {
-    color: #999;
-    margin-bottom: 30px;
-    text-align: center;
+	color: #999;
+	margin-bottom: 30px;
+	text-align: center;
 }
+
 .login-form form {
-    color: #999;
-    border-radius: 3px;
-    margin-bottom: 15px;
-    background: #f2f3f7;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    padding: 30px;
-    border-color: #fff
+	color: #999;
+	border-radius: 3px;
+	margin-bottom: 15px;
+	background: #f2f3f7;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	padding: 30px;
+	border-color: #fff
 }
+
 .login-form .form-group {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
+
 .login-form input[type="checkbox"] {
-    margin-top: 3px;
+	margin-top: 3px;
 }
-.login-form .btn {        
-    font-size: 16px;
-    font-weight: bold;      
-    min-width: 140px;
-    outline: none !important;
-    color: #fff;
+
+.login-form .btn {
+	font-size: 16px;
+	font-weight: bold;
+	min-width: 140px;
+	outline: none !important;
+	color: #fff;
 }
+
 .login-form .row div:first-child {
-    padding-right: 10px;
+	padding-right: 10px;
 }
+
 .login-form .row div:last-child {
-    padding-left: 10px;
-}       
+	padding-left: 10px;
+}
+
 .login-form a {
-    color: #fff;
-    text-decoration: underline;
+	color: #fff;
+	text-decoration: underline;
 }
+
 .login-form a:hover {
-    text-decoration: none;
+	text-decoration: none;
 }
+
 .login-form form a {
-    color: #FFD700;
-    text-decoration: none;
-}   
+	color: #FFD700;
+	text-decoration: none;
+}
+
 .login-form form a:hover {
-    text-decoration: underline;
-}  
+	text-decoration: underline;
+}
 </style>
 
 
 </head>
 <body>
-<div class="login-form">
-    <form action="${pageContext.request.contextPath}/contact_us_action" method="post" modelAttribute="contact_us">
-        <h2>Contact Us</h2>
-        
-        <div class="form-group">
-            <input type="text" class="form-control" name="first_name" placeholder="Full Name" required="required">
-        </div>
-          
-         <div class="form-group">
-            <input type="email" class="form-control" name="email" placeholder="Email" required="required">
-        </div>
-         <div class="form-group">
-         <textarea name = "message" class = "form-control" rows="5" cols="20" placeholder="Type your message"></textarea>
-         <br>
-        <div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block" style="background-color: #272A2B; border-color: none" onclick="myFunction()">Submit</button>
-        </div>
-        <script>
-function myFunction() {
-  alert("Thank you for contacting us!");
-}
-</script>
-        
-        </div>
-    </form>
-</div>
+	<div class="login-form">
+		<form action="${pageContext.request.contextPath}/contact_us_action"
+			method="post" modelAttribute="contact_us">
+			<h2>Contact Us</h2>
+
+			<div class="form-group">
+				<input type="text" class="form-control" name="first_name"
+					placeholder="Full Name" required="required">
+			</div>
+
+			<div class="form-group">
+				<input type="email" class="form-control" name="email"
+					placeholder="Email" required="required">
+			</div>
+			<div class="form-group">
+				<textarea name="message" class="form-control" rows="5" cols="20"
+					placeholder="Type your message"></textarea>
+				<br>
+				<div class="form-group">
+					<button type="submit" class="btn btn-success btn-lg btn-block"
+						style="background-color: #272A2B; border-color: none"
+						onclick="myFunction()">Submit</button>
+				</div>
+				<script>
+					function myFunction() {
+						alert("Thank you for contacting us!");
+					}
+				</script>
+
+			</div>
+		</form>
+	</div>
 </body>
 </html>
