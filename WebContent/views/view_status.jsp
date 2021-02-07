@@ -51,7 +51,7 @@ table {
         </div>
     </nav>
    <center>
-        <h2 style="color: #8321B4;font-family:Cursive">View Status</h2>
+        <h2 style="color: #cc0000;font-style: italic;font-weight: bold;font-size:30px">View Status</h2>
    </center>
    
    <center>

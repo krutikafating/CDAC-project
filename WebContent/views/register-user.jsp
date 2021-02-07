@@ -1,3 +1,7 @@
+
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -99,6 +103,11 @@ body {
 .login-form form a:hover {
     text-decoration: underline;
 }  
+.error
+{
+	color:red;
+	 font-style: italic;
+}  
 </style>
 
 
@@ -108,39 +117,44 @@ body {
 
 
 <div class="login-form">
-    <form action="${pageContext.request.contextPath}/register_action_user" method="post" modelAttribute="register_new">
+    <form:form action="${pageContext.request.contextPath}/register_action_user" method="post" modelAttribute="register_new">
         <h2>Register User</h2>
         
         <div class="form-group">
-            <input type="text" class="form-control" name="full_name" placeholder="Full Name" required="required">
+           <form:input path="full_name" type="text" class="form-control" name="full_name" placeholder="Full Name" />
+           <form:errors path="full_name" cssClass="error"/>
         </div>
          
          <div class="form-group">
-            <input type="email" class="form-control" name="email" placeholder="Email id" required="required">
+          <form:input path="email" type="email" class="form-control" name="email" placeholder="Email id" />
+          <form:errors path="email" cssClass="error"/>
         </div>    
           <div class="form-group">
-            <input type="text" class="form-control" name="address" placeholder="Address" required="required">
+          <form:input path="address" type="text" class="form-control" name="address" placeholder="Address" />
+          <form:errors path="address" cssClass="error"/>
         </div> 
          <div class="form-group">
-            <input type="date" class="form-control" name="dob" placeholder="Date of birth" required="required">
+        <input type="date" class="form-control" name="dob" placeholder="Date of birth">
         </div> 
         <div class="form-group">
-            <input type="tel" class="form-control" name="mobile" placeholder="Mobile no" required="required">
+          <form:input path="mobile" type="tel" class="form-control" name="mobile" placeholder="Mobile no" />
+          <form:errors path="mobile" cssClass="error"/>
         </div> 
          <div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+          <form:input path="password" type="password" class="form-control" name="password" placeholder="Password" />
+          <form:errors path="password" cssClass="error"/>
         </div>  
          <div class="form-group">
-            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" >
         </div>       
-          <div class="form-group" style="position:center;margin-left:150px;color:#ff0000">${requestScope.message}
+          <div class="form-group" style="color:#ff0000">${requestScope.message}
         </div> 
         <div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block" style="background-color: #272A2B; border-color: none">Register</button>
+            <form:button type="submit" class="btn btn-success btn-lg btn-block" style="background-color: #272A2B; border-color: none">Register</form:button>
         </div>
         
         
-    </form>
+    </form:form>
 </div>
 </body>
 </html>

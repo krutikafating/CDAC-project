@@ -44,7 +44,7 @@
 		</div>
 	</nav>
 	<center>
-		<h2 style="color: #8321B4;font-family:Cursive">
+		<h2 style="color: #cc0000;font-style: italic;font-weight: bold;font-size:30px">
   			Welcome <%= session.getAttribute("username") %>
   		</h2>
   	</center>

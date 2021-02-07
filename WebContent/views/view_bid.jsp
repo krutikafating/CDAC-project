@@ -48,7 +48,7 @@ table {
 		</div>
 	</nav>
 	<center>
-		<h2 style="color: #8321B4; font-family: Cursive">Bids List</h2>
+		<h2 style="color: #cc0000;font-style: italic;font-weight: bold;font-size:30px">Bids List</h2>
 	</center>
 	
 
@@ -56,7 +56,6 @@ table {
 
 	<table border="1" cellspacing="10" cellpadding="10">
 		<thead>
-			<th>Sr.No</th>
 			<th>Buyer Name</th>
 			<th>Product</th>
 			<th>Bid Amount</th>

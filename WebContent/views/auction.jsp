@@ -64,14 +64,13 @@ table {
 		</div>
 	</nav>
 	<center>
-		<h2 style="color: #8321B4; font-family: Cursive">Auction</h2>
+		<h2 style="color: #cc0000;font-style: italic;font-weight: bold;font-size:30px">Auction</h2>
 	</center>
 
 	<center>
 
 		<table border="1" cellspacing="10" cellpadding="10">
 			<thead>
-				<th>id</th>
 				<th>Username</th>
 				<th>Product</th>
 				<th>Details</th>
@@ -86,7 +85,6 @@ table {
 			</thead>
 			<jstlc:forEach var="product" items="${product_list_auction}">
 				<tr>
-					<td>${product.id}</td>
 					<td>${product.seller.full_name}</td>
 					<td>${product.product_name}</td>
 					<td>${product.details}</td>

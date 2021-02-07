@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
-
+import javax.validation.Valid;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -123,6 +123,9 @@ public class UserController {
 		@RequestMapping( "/new_register")
 		public String getRegisterForm(HttpServletRequest req, Model m)
 		{	
+			
+			m.addAttribute("register_new",new User());
+			
 			String message_from_req = (String)req.getSession().getAttribute("message");
 			 m.addAttribute("message", message_from_req);
 			 req.getSession().setAttribute("message", null);
@@ -130,35 +133,65 @@ public class UserController {
 		}
 		
 		@RequestMapping(value = "/register_action_user", method = RequestMethod.POST)
-		public void registerUser(
-				HttpServletRequest req, 
-				HttpServletResponse res,
-				@ModelAttribute("register_new") User user1) 
+		public String registerUser(
+		HttpServletRequest req, 
+		HttpServletResponse res,
+				@Valid @ModelAttribute("register_new") User user1 , BindingResult result) 
 				throws IOException {
 			
 			//List<User> users = 	userService.findByEmail(user1.getEmail());
 			
+			
+			if(result.hasErrors()) {
+				System.out.println("my form has errors..");
+				return "views/register-user";
+			}
+			else {
+				
 				if(user1.getPassword().equals(user1.getConfirm_password()))
-				{
-					
-					userService.persist(user1);
-		
-				try {
-					req.getSession().setAttribute("message", "Registration successful. Please login with your credentials.");  
-					res.sendRedirect("user");
-					}catch(Exception e) {
-						System.out.println(e);
+					{
+						
+						userService.persist(user1);
+			
+					try {
+						req.getSession().setAttribute("message", "Registration successful. Please login with your credentials.");  
+						return "redirect:user";
+						}catch(Exception e) {
+							System.out.println(e);
+							return "redirect:new_register";
+						}
+			
+					}
+				else
+					{
+						req.getSession().setAttribute("message", "Passwords must be same.");  
+						return "redirect:new_register";
 					}
 				
-			}
-			else
-			{
-				req.getSession().setAttribute("message", "Passwords must be same.");  
-				res.sendRedirect("new_register") ;
-			}
+			
+				}
+		}
+//				if(user1.getPassword().equals(user1.getConfirm_password()))
+//				{
+//					
+//					userService.persist(user1);
+//		
+//				try {
+//					req.getSession().setAttribute("message", "Registration successful. Please login with your credentials.");  
+//					res.sendRedirect("user");
+//					}catch(Exception e) {
+//						System.out.println(e);
+//					}
+//				
+//			}
+//			else
+//			{
+//				req.getSession().setAttribute("message", "Passwords must be same.");  
+//				res.sendRedirect("new_register") ;
+//			}
 		
 		}
 		
-	}
+	
 	
 

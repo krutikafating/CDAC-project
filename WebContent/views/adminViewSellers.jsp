@@ -37,7 +37,7 @@
         </div>
     </nav>
    <center>
-        <h2 style="color: #8321B4;font-family:Cursive">View Sellers</h2>
+        <h2 style="color: #cc0000;font-style: italic;font-weight: bold;font-size:30px">View Sellers</h2>
    </center>
 
 </body>

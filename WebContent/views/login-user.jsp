@@ -124,7 +124,7 @@ body {
             <a href="new_register" style="position:center;margin-left:150px;color:#1A1DD3">New Register!</a>
         </div>  
        
-         <div class="form-group" style="position:center;text-align:center;color:black">${requestScope.message}
+         <div class="form-group" style="position:center;text-align:center;color:black;font-weight: bold;font-style: italic;font-size:20px">${requestScope.message}
         </div> 
     </form>
     

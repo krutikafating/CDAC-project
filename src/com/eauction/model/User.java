@@ -8,7 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 //POJO CLass
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -23,13 +27,16 @@ public class User implements Serializable {
 	private int id;
 
 	@Column(name = "full_name")
+	@NotBlank(message = "*Full name can't be blank")
 	private String full_name;
 
-
 	@Column(name = "email")
+	@NotBlank(message = "*Email can't be blank")
+	@Email(message = "Please write correct Email ID")
 	private String email;
 
 	@Column(name = "address")
+	@NotBlank(message = "*Address can't be blank")
 	private String address;
 
 	@Column(name = "dob")
@@ -37,9 +44,12 @@ public class User implements Serializable {
 	private Date dob;
 
 	@Column(name = "mobile")
+	@NotBlank(message = "*Mobile no can't be blank")
 	private String mobile;
 
 	@Column(name = "password")
+	@NotBlank(message = "*Password can't be blank")
+	@Size(min = 1, max = 12, message = "*Password must be between 8-12 characters")
 	private String password;
 
 	private String confirm_password;
