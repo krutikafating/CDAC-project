@@ -32,7 +32,7 @@ public class User implements Serializable {
 
 	@Column(name = "email")
 	@NotBlank(message = "*Email can't be blank")
-	@Email(message = "Please write correct Email ID")
+	@Email(message = "*Please write correct Email ID")
 	private String email;
 
 	@Column(name = "address")

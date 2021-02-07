@@ -27,7 +27,7 @@ body {
 .form-control {
     height: 40px;
     box-shadow: none;
-    color: #969fa4;
+    color: #272525;
 }
 .login-form {
     width: 450px;
@@ -62,7 +62,7 @@ body {
     text-align: center;
 }
 .login-form form {
-    color: #999;
+    color: #1b1818;
     border-radius: 3px;
     margin-bottom: 15px;
     background: #f2f3f7;

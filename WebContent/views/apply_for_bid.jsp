@@ -62,7 +62,7 @@ body {
     text-align: center;
 }
 .login-form form {
-    color: #595959;
+    color: #1b1818;
     border-radius: 3px;
     margin-bottom: 15px;
     background: #f2f3f7;

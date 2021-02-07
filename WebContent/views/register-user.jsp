@@ -27,7 +27,7 @@ body {
 .form-control {
     height: 40px;
     box-shadow: none;
-    color: #969fa4;
+    color: #272525;
 }
 .login-form {
     width: 450px;
@@ -62,7 +62,7 @@ body {
     text-align: center;
 }
 .login-form form {
-    color: #999;
+    color: #1b1818;
     border-radius: 3px;
     margin-bottom: 15px;
     background: #f2f3f7;
@@ -121,30 +121,37 @@ body {
         <h2>Register User</h2>
         
         <div class="form-group">
+          <label for="product">Full Name:</label>
            <form:input path="full_name" type="text" class="form-control" name="full_name" placeholder="Full Name" />
            <form:errors path="full_name" cssClass="error"/>
         </div>
          
          <div class="form-group">
+           <label for="product">Email:</label>
           <form:input path="email" type="email" class="form-control" name="email" placeholder="Email id" />
           <form:errors path="email" cssClass="error"/>
         </div>    
           <div class="form-group">
+            <label for="product">Address:</label>
           <form:input path="address" type="text" class="form-control" name="address" placeholder="Address" />
           <form:errors path="address" cssClass="error"/>
         </div> 
          <div class="form-group">
+           <label for="product">Date of birth:</label>
         <input type="date" class="form-control" name="dob" placeholder="Date of birth">
         </div> 
         <div class="form-group">
+          <label for="product">Mobile no:</label>
           <form:input path="mobile" type="tel" class="form-control" name="mobile" placeholder="Mobile no" />
           <form:errors path="mobile" cssClass="error"/>
         </div> 
          <div class="form-group">
+           <label for="product">Password:</label>
           <form:input path="password" type="password" class="form-control" name="password" placeholder="Password" />
           <form:errors path="password" cssClass="error"/>
         </div>  
          <div class="form-group">
+           <label for="product">Confirm Password:</label>
             <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" >
         </div>       
           <div class="form-group" style="color:#ff0000">${requestScope.message}
