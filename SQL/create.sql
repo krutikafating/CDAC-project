@@ -59,6 +59,7 @@ INSERT INTO `hibernate_sequence` (`next_val`) VALUES
 -- Table structure for table `product`
 --
 
+
 CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `seller_id` int(11) NOT NULL,
@@ -69,7 +70,8 @@ CREATE TABLE `product` (
   `closing_date` date NOT NULL,
   `email` varchar(50) NOT NULL,
   `mobile` varchar(10) NOT NULL,
-  `status` varchar(10) NOT NULL DEFAULT 'Active'
+  `status` varchar(10) NOT NULL DEFAULT 'Active',
+  `image` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
